@@ -22,7 +22,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: auto;
             position: relative;
-            top: 20%;
+            margin-top: 74px;
             display: flex;
             align-items: center;
         }
@@ -37,14 +37,14 @@
             margin-top: 50px;
         }
 
-      .circle {
-    position: relative;
-    width: 152px;
-    height: 210px;
-    border-top-right-radius: 50%;
-border-bottom-right-radius: 50%;
-    overflow: hidden;
-}
+        .circle {
+            position: relative;
+            width: 152px;
+            height: 210px;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            overflow: hidden;
+        }
 
         /* Employee ID styling */
         .employee-id {
@@ -66,7 +66,8 @@ border-bottom-right-radius: 50%;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: relative; /* Add this */
+            position: relative;
+            /* Add this */
         }
 
         /* Text styling */
@@ -103,7 +104,7 @@ border-bottom-right-radius: 50%;
 
         .image-adjust-controls {
             display: flex;
-            justify-content: space-around;
+            justify-content:center;
             margin-top: 20px;
         }
 
@@ -116,7 +117,8 @@ border-bottom-right-radius: 50%;
                 visibility: hidden;
             }
 
-            .id-card, .id-card * {
+            .id-card,
+            .id-card * {
                 visibility: visible;
                 -webkit-print-color-adjust: exact;
             }
@@ -162,41 +164,74 @@ border-bottom-right-radius: 50%;
             width: 100%;
             max-width: 500px;
         }
-
         .img_adg_btn {
-            margin-left: 37%;
-        }
+    display: flex;
+    justify-content: space-between; /* Adjusts spacing between buttons */
+}
+
+
+
+
+/* For smaller screens (phones) */
+@media (max-width: 500px) {
+    .image-adjust-controls {
+        flex-direction: column; /* Stack the controls vertically */
+        align-items: center;
+        
+    }
+
+    .img_adg_btn {
+        flex-direction: column; /* Align buttons vertically */
+        width: 100%; /* Make sure buttons take full width */
+        gap: 10px; /* Add some space between buttons */
+    }
+
+    .img_adg_btn label,
+    .img_adg_btn input {
+        width: 100%; /* Make input fields and labels fill the container */
+    }
+}
+
+
 
         /* Add this to ensure the profile image can move properly */
         #profileImage {
-            transition: margin 0.3s ease, transform 0.3s ease; /* Optional: Smooth transition */
-            position: relative;  /* Ensure the image is positioned relatively to its container */
+            transition: margin 0.3s ease, transform 0.3s ease;
+            /* Optional: Smooth transition */
+            position: relative;
+            /* Ensure the image is positioned relatively to its container */
         }
     </style>
 </head>
 
 <body>
     <div class="container mt-5">
-        <h2 class="text-center text-primary fw-bold text-decoration-underline">BHEEM ARMY ID GENERATE</h2>
+        <div class="text-center text-primary fw-bold text-decoration-underline mb-5">
+        <h2>BHEEM ARMY ID GENERATE</h2>
+    </div>
         <div class="row justify-content-center">
             <div class="col-6 form-container">
                 <form id="employeeForm" class="w-100">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name"
+                            required>
                     </div>
 
                     <div class="mb-3">
                         <label for="mobile" class="form-label">Mobile Number</label>
-                        <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Mobile Number" required>
+                        <input type="number" class="form-control" id="mobile" name="mobile"
+                            placeholder="Enter Your Mobile Number" required>
                     </div>
                     <div class="mb-3">
                         <label for="dob" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter Your Date of Birth" required>
+                        <input type="date" class="form-control" id="dob" name="dob"
+                            placeholder="Enter Your Date of Birth" required>
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <textarea class="form-control" id="address" name="address" rows="2" placeholder="Enter Your Village & Pin Code" required></textarea>
+                        <textarea class="form-control" id="address" name="address" rows="2"
+                            placeholder="Enter Your Village & Pin Code" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Upload Image</label>
@@ -206,6 +241,7 @@ border-bottom-right-radius: 50%;
                 </form>
             </div>
         </div>
+
 
         <!-- Employee ID Card Preview -->
         <div id="idCardContainer" class="mt-5 print-area" style="display: none;">
@@ -224,23 +260,24 @@ border-bottom-right-radius: 50%;
                     <p class="address"><strong>Village & Pin Code:</strong> <span id="employeeAddress"></span></p>
                 </div>
             </div>
-
-            <!-- Image Adjustment Controls -->
-            <div id="imageControls" class="image-adjust-controls" style="display: none;">
-                <div class="img_adg_btn">
-                    <label for="marginLeft">Left</label>
-                    <input type="range" id="marginLeft" min="-50" max="50" value="0">
-
-                    <label for="marginDown">Down</label>
-                    <input type="range" id="marginDown" min="-50" max="50" value="0">
-                    
-
-                    <label for="scale">Zoom</label>
-                    <input type="range" id="scale" min="1" max="2" step="0.1" value="1">
-                </div>
-            </div>
-
         </div>
+
+        <!-- Image Adjustment Controls -->
+        <div id="imageControls" class="image-adjust-controls" style="display: none;">
+            <div class="img_adg_btn">
+                <label for="marginLeft">Left</label>
+                <input type="range" id="marginLeft" min="-50" max="50" value="0">
+
+                <label for="marginDown">Down</label>
+                <input type="range" id="marginDown" min="-50" max="50" value="0">
+
+
+                <label for="scale">Zoom</label>
+                <input type="range" id="scale" min="1" max="2" step="0.1" value="1">
+            </div>
+        </div>
+
+
 
         <!-- Action Buttons -->
         <div class="d-flex justify-content-center mt-3">
@@ -248,8 +285,8 @@ border-bottom-right-radius: 50%;
             <button id="confirmButton" class="btn btn-success mx-2" style="display: none;">Confirm & Show Print</button>
             <button id="printButton" class="btn btn-primary mx-2" style="display: none;">Print ID Card</button>
         </div>
-    </div>
 
+    </div>
     <script>
         // Utility function to generate a random Employee ID
         function generateEmployeeID(prefix = 'ASP', length = 6) {
@@ -309,26 +346,26 @@ border-bottom-right-radius: 50%;
         document.getElementById('printButton').addEventListener('click', function () {
             window.print();
         });
-// Image adjustment events
-const profileImage = document.getElementById('profileImage');
+        // Image adjustment events
+        const profileImage = document.getElementById('profileImage');
 
-// Adjust image left position
-document.getElementById('marginLeft').addEventListener('input', function () {
-    const marginLeftValue = this.value + 'px';
-    profileImage.style.marginLeft = marginLeftValue;  // Adjusting marginLeft of the image
-});
+        // Adjust image left position
+        document.getElementById('marginLeft').addEventListener('input', function () {
+            const marginLeftValue = this.value + 'px';
+            profileImage.style.marginLeft = marginLeftValue;  // Adjusting marginLeft of the image
+        });
 
-document.getElementById('marginDown').addEventListener('input', function () {
-    const marginDownValue = this.value + 'px';
-    profileImage.style.marginTop = marginDownValue; // Adjusting marginTop of the image
-});
+        document.getElementById('marginDown').addEventListener('input', function () {
+            const marginDownValue = this.value + 'px';
+            profileImage.style.marginTop = marginDownValue; // Adjusting marginTop of the image
+        });
 
 
-// Scale the image
-document.getElementById('scale').addEventListener('input', function () {
-    const scaleValue = this.value;
-    profileImage.style.transform = 'scale(' + scaleValue + ')';  // Scaling the image
-});
+        // Scale the image
+        document.getElementById('scale').addEventListener('input', function () {
+            const scaleValue = this.value;
+            profileImage.style.transform = 'scale(' + scaleValue + ')';  // Scaling the image
+        });
 
     </script>
 </body>
