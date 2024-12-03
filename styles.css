@@ -1,0 +1,213 @@
+  /* Styling for the ID card */
+  .id-card {
+    width: 528px;
+    height: 365px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-image: url('poster.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    position: relative;
+    margin-top: 74px;
+    display: flex;
+    align-items: center;
+}
+
+/* Form Styling */
+#employeeForm {
+    border: 2px solid #007bff;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 27px;
+}
+
+.circle {
+    position: relative;
+    width: 152px;
+    height: 210px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    overflow: hidden;
+}
+
+/* Employee ID styling */
+.employee-id {
+    position: absolute;
+    bottom: -10px;
+    left: 35%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    /* Add this */
+}
+
+/* Text styling */
+.id-card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-bottom: 19px;
+}
+
+.id-card h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+.id-card p {
+    font-size: 14px;
+    color: white;
+    margin: 1px 0;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Address section styling */
+.address span {
+    word-break: break-word;
+    white-space: normal;
+    display: block;
+}
+
+.image-adjust-controls {
+    display: flex;
+    justify-content:center;
+    margin-top: 20px;
+}
+
+.image-adjust-controls label {
+    margin-right: 10px;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .id-card,
+    .id-card * {
+        visibility: visible;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .id-card {
+        background-image: url('poster.png') !important;
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        width: 528px;
+        height: 365px;
+        box-shadow: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        page-break-after: always;
+    }
+
+    .btn-group {
+        display: none;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .container {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Center the form and fields inside col-6 */
+.col-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 73vh;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+}
+.img_adg_btn {
+display: flex;
+justify-content: space-between; /* Adjusts spacing between buttons */
+}
+
+
+
+
+/* For smaller screens (phones) */
+@media (max-width: 500px) {
+.image-adjust-controls {
+flex-direction: column; /* Stack the controls vertically */
+align-items: center;
+
+}
+
+.img_adg_btn {
+flex-direction: column; /* Align buttons vertically */
+width: 100%; /* Make sure buttons take full width */
+gap: 10px; /* Add some space between buttons */
+}
+
+.img_adg_btn label,
+.img_adg_btn input {
+width: 100%; /* Make input fields and labels fill the container */
+}
+
+
+.for-mar {
+margin-bottom: 50px !important;
+}
+
+.circle {
+width: 111px;
+height: 164px;
+}
+.id-card {
+width: 404px;
+height: 295px;
+}
+.id-card h5 {
+font-size: 14px;
+}
+.id-card p {
+font-size: 11px;
+}
+.id-card-text {
+margin-bottom: 0px;
+}
+}
+/* Add this to ensure the profile image can move properly */
+#profileImage {
+    transition: margin 0.3s ease, transform 0.3s ease;
+    /* Optional: Smooth transition */
+    position: relative;
+    /* Ensure the image is positioned relatively to its container */
+}
